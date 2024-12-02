@@ -3,16 +3,21 @@
   "version": "1.0.0",
   "description": "generative AI backend",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
   },
   "author": "moges tesema",
   "license": "ISC",
   "dependencies": {
+    "@google/generative-ai": "^0.21.0",
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
     "mongodb": "^6.11.0",
     "mongoose": "^8.8.3",
-    "openai": "^4.73.1"
+    "nodemon": "^3.1.7"
   }
 }
