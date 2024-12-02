@@ -1,20 +1,24 @@
 // backend/server.js
+import dotenv from 'dotenv';
 import express from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import cors from 'cors';
-import chatRoutes from './routes/chat';
+import chatRoutes from './routes/chat.js';
 
-
-const app = express(); // Create an instance of Express
+dotenv.config(".env");
+const GENERATIVEAI_API_KEY=process.env.GENERATIVEAI_API_KEY;
+const MONGODB_URL=process.env.MONGODB_URL;
 const PORT = process.env.PORT || 5000; // Set the port
+const app = express(); // Create an instance of Express
+
 
 // Middleware setup
 app.use(cors()); // Enable CORS for all requests
 app.use(bodyParser.json()); // Parse JSON request bodies
 
 // MongoDB connection
-mongoose.connect('mongodb://localhost:27017/chatbot', { 
+mongoose.connect(MONGODB_URL, { 
     useNewUrlParser: true, 
     useUnifiedTopology: true 
 })
